@@ -1,4 +1,4 @@
-# Proyecto Flask en el marco de Misión TIC 2022 | Uninorte Cilo 3
+# Proyecto Flask en el marco de Misión TIC 2022 | Uninorte Ciclo 3
 ## NRC 2095 - Grupo 09
 
 ## Inegrantes: 
