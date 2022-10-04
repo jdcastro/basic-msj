@@ -1,0 +1,51 @@
+{% extends 'partials/dashboard.index.html' %}
+{% block aside %}    
+{% endblock  %}
+
+{% block dashbcomponent %}
+
+<div class="container has-text-centered">
+    <div class="column is-4 is-offset-4">
+        <h3 class="title has-text-black">Ingreso</h3>
+        <hr class="login-hr">
+        <div class="box white-ter">
+            <span class="login"><i class="fa-solid fa-circle-user"></i></span>
+            <form  action="/dashboard/user" method="post" >
+                <div class="field is-horizontal">
+                    <div class="field-body">
+                      <div class="field is-expanded">
+                        <div class="field has-addons">
+                          <p class="control">
+                            <a class="button is-static">
+                              CC
+                            </a>
+                          </p>
+                          <p class="control is-expanded">
+                            <input class="input" type="number" placeholder="Documento de identidad">
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                <div class="field">
+                    <div class="control">
+                        <input class="input " type="password" placeholder="Clave">
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="checkbox">
+      <input type="checkbox">
+      Recuerdame
+    </label>
+                </div>
+                <button class="button is-block is-info is-large is-fullwidth">Ingresar <i class="fa fa-sign-in" aria-hidden="true"></i></button>
+            </form>
+        </div>
+        <p class="has-text-grey">
+            <a href="/registrarse">Registrarse</a> &nbsp;·&nbsp;
+            <a href="/recuperarclave">Olvidé mi clave</a>
+        </p>
+    </div>
+</div>
+{% endblock %}

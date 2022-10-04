@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+
+{% block head %}
+{% set pageTitle = 'Dashboard' %}
+{% with title=pageTitle %}
+{% include 'partials/dashboard.head.html' with context %}
+{% endwith %}
+{% endblock %}
+
+<body>
+
+    {% block header %}
+    <header>
+        {% block nav %}
+        {% include 'partials/dashboard.nav.html' %}
+        {% endblock %}
+    </header>
+    {% endblock %}
+
+    <div class="columns is-variable bd-klmn-columns is-1 pb-0 mb-0">
+
+        {% block aside %}
+        <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
+        <label for="openSidebarMenu" class="sidebarIconToggle">
+            <div class="spinner diagonal part-1"></div>
+            <div class="spinner horizontal"></div>
+            <div class="spinner diagonal part-2"></div>
+        </label>
+
+        <div class="column is-2  pb-0 mb-0" id="lateral">
+            <aside class="menu bd-gray-900" id="adminmenu">
+                <p class="menu-label">
+                    General
+                </p>
+                <ul class="menu-list">
+                    <li><a>Dashboard</a></li>
+                    <li><a>Customers</a></li>
+                </ul>
+                <p class="menu-label">
+                    Administration
+                </p>
+                <ul class="menu-list">
+                    <li><a>Team Settings</a></li>
+                    <li>
+                        <a class="is-active">Manage Your Team</a>
+                        <ul>
+                            <li><a>Members</a></li>
+                            <li><a>Plugins</a></li>
+                            <li><a>Add a member</a></li>
+                        </ul>
+                    </li>
+                    <li><a>Invitations</a></li>
+                    <li><a>Cloud Storage Environment Settings</a></li>
+                    <li><a>Authentication</a></li>
+                </ul>
+                <p class="menu-label">
+                    Transactions
+                </p>
+                <ul class="menu-list">
+                    <li><a>Payments</a></li>
+                    <li><a>Transfers</a></li>
+                    <li><a>Balance</a></li>
+                </ul>
+            </aside>
+        </div>
+        {% endblock %}
+
+        <div class="column pb-0 mb-0">
+            {% block dashbcomponent %}
+
+            {% endblock %}
+        </div>
+    </div>
+
+
+    {% block footer %}
+    {% include 'partials/dashboard.footer.html' without context %}
+    {% endblock footer %}
+
+</body>
+
+</html>

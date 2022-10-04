@@ -1,0 +1,58 @@
+{% extends 'partials/dashboard.index.html' %}
+{% block aside %}
+{% endblock %}
+
+{% block dashbcomponent %}
+
+{% macro field(name, value='', type='text', placeholder='', icon='') -%}
+    <div class="field is-horizontal">
+        <div class="field-body">
+            <div class="field is-expanded">
+                <div class="field has-addons">
+                    <p class="control">
+                        <a class="button is-static">
+                            <i class="fa-solid fa-{{ icon }}"></i>
+                        </a>
+                    </p>
+                    <p class="control is-expanded">
+                        <input class="input" name="{{name}}" id="{{name}}" type="{{type}}"
+                            placeholder="{{placeholder}}">
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+{%- endmacro %}
+
+<div class="container has-text-centered">
+    <div class="column is-4 is-offset-4">
+        <h3 class="title has-text-black"><span class="login"><i class="fa-solid fa-address-card"></i></span>Registro
+        </h3>
+        <hr class="login-hr">
+        <div class="box white-ter">
+            <form action="/registrarse" method="post">
+
+            {{ field('cc', type='number', placeholder='Documento de identidad', icon='id-card') }}
+            {{ field('nombre', type='text', placeholder='Nombre', icon='signature') }}
+            {{ field('apellido', type='text', placeholder='Apellido', icon='file-signature') }}
+            {{ field('email', type='mail', placeholder='eMail', icon='envelope') }}
+            {{ field('password', type='password', placeholder='Clave', icon='plane-lock') }}
+            {{ field('validate_password', type='password', placeholder='Repite Clave', icon='plane-lock') }}
+
+                <div class="field">
+                    <label class="checkbox">
+                        <input type="checkbox">
+                        Recuerdame
+                    </label>
+                </div>
+                <button class="button is-block is-info is-large is-fullwidth">Ingresar <i class="fa fa-sign-in"
+                        aria-hidden="true"></i></button>
+            </form>
+        </div>
+        <p class="has-text-grey">
+            <a href="/acceso">Ingresar</a> &nbsp;·&nbsp;
+            <a href="/recuperarclave">Olvidé mi clave</a>
+        </p>
+    </div>
+</div>
+{% endblock %}

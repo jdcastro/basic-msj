@@ -2,7 +2,7 @@ help/
 .idea/
 .vscode/
 app-example
-
+app/log.txt
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
