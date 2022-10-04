@@ -3,7 +3,8 @@ help/
 .vscode/
 app-example
 app/log.txt
-
+app/venv
+app/config.py
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

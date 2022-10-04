@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 def sqlexception_handler(sqlfunc):
     def inner_function(*args, **kwargs):
         try:

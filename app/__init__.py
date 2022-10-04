@@ -1,17 +1,18 @@
-# -*- coding: utf-8 -*-
+import os
+from .config import Config
 from .decorators import sqlexception_handler
-from .modeldb import Users, Roles, start_db, db
+from .modeldb import Users, ForgotLink, start_db, db
 
 from flask import (
     Flask, redirect, render_template, request, url_for, make_response
 )
 
+
 app = Flask(__name__)
-app.config.from_pyfile('../config.py')
-app.config.from_object('config.Config')  # Using configuration
+
+app.config.from_object(Config)  # Using configuration
+
 db.init_app(app)
-
-
 """
 Durante el estado de desarrollo.
 Cabecera adicional para forzar la recarga de la cache.
@@ -23,6 +24,7 @@ def add_header(r):
     r.headers["Expires"] = "0"
     r.headers['Cache-Control'] = 'public, max-age=0'
     return r
+
 
 
 @app.route('/')
@@ -67,9 +69,7 @@ def dashboard():
 @app.route('/db_init')
 def check_db_status():
     start_db()
-    nr = Roles()
-    nr.init_roles()
-    return "Todo correcto "
+    return "Todo correcto " + Config.SQLALCHEMY_DATABASE_URI
 
 
 @app.route('/testrule')
